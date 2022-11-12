@@ -35,7 +35,7 @@ function App() {
   ];
   return (
     <div>
-      <h2>Lets get started</h2>
+      <h2>Expense Tracker</h2>
 
       {expenses.map((el, index) => <ExpenseItem title={expenses[index].title} amount={expenses[index].amount} location={expenses[index].location} date={expenses[index].date}></ExpenseItem>)}
 
