@@ -6,12 +6,11 @@ import ExpenseAmount from "./UI/ExpenseAmount.js";
 //import Card from "./UI/Card.js";
 
 const ExpenseItem = (props) => {
-   let [title,setTitle]  = useState(props.title);
-   let [amount,setAmount] = useState(props.amount)
-   //let [amount,setAmount] = useState(props.amount);
-   
+   let [title, setTitle] = useState(props.title);
+   let [amount, setAmount] = useState(props.amount)
+
    let clickhandler = () => {
-      setTitle('updated'); 
+      setTitle('updated');
       console.log(title)
    }
    let amountHandler = () => {

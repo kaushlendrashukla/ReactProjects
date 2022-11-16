@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
-//import './App.css';
+import './App.css';
 import ExpenseItem from './components/Expenses/ExpenseItem';
+import NewExpense from './components/Expenses/NewExpense/NewExpense';
 
 const App = () => {
   const expenses = [
@@ -37,7 +38,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>Expense Tracker</h2>
+     <NewExpense />
       {/* <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} location={expenses[0].location} date={expenses[0].date}></ExpenseItem>
       <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} location={expenses[1].location} date={expenses[0].date}></ExpenseItem>
       <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} location={expenses[2].location} date={expenses[2].date}></ExpenseItem>
