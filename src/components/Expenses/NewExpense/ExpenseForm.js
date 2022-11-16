@@ -1,39 +1,49 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './ExpenseForm.css';
 
 
 const ExpenseForm = () => {
     // document.getElementById('').addEventListener('click', () => {})
-// const [enteredTitle , setEnteredTitle] = useState('');
-// const [enteredAmount, setEnteredAmount] = useState('');
-// const [enteredDate, setEnteredDate]   = useState('')
-const [userInput, setUserInpt] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: '',
-})
+    const [enteredTitle , setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredDate, setEnteredDate]   = useState('')
+    // const [userInput, setUserInpt] = useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate: '',
+    // })
 
     const titleChangeHandler = (event) => {
-       setUserInpt({
-           ...userInput,
-        enteredTitle: event.target.value,
-       });
+        setEnteredTitle(event.target.value)
+        // console.log(event.target.value)
     }
     const amountChangeHandler = (event) => {
-        setUserInpt({
-            ...userInput,
-         enteredAmount: event.target.value,
-        });
+        // setUserInpt({
+        //     ...userInput,
+        //     enteredAmount: event.target.value,
+        // });
+        setEnteredAmount(event.target.value)
     }
     const dateChangeHandler = (event) => {
-        setUserInpt({
-            ...userInput,
-         enteredDate: event.target.value,
-        });
+        // setUserInpt({
+        //     ...userInput,
+        //     enteredDate: event.target.value,
+        // });
+        setEnteredDate(event.target.value)
     }
+    const formSubmission =(event) => {
+        event.preventDefault();
+const obj ={
+    amount: enteredAmount,
+    title: enteredTitle,
+    date: new Date(enteredDate),
+
+}
+console.log(obj)
+    };
     return (
         <div className="formlayout">
-            <form className="formlayout">
+            <form onSubmit ={formSubmission} className="formlayout">
                 <div className="formlayout">
                     <div className="title">
                         <label>Title:-</label>
@@ -49,7 +59,7 @@ const [userInput, setUserInpt] = useState({
                     </div>
                 </div>
                 <div >
-                    <button className="form_button" type="submit">Add Expense</button>
+                    <button className="form_button" type="submit" >Add Expense</button>
                 </div>
             </form>
         </div>
