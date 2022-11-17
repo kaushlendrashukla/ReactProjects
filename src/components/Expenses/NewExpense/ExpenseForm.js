@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import './ExpenseForm.css';
 
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     // document.getElementById('').addEventListener('click', () => {})
-    const [enteredTitle , setEnteredTitle] = useState('');
+    const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate]   = useState('')
+    const [enteredDate, setEnteredDate] = useState('')
     // const [userInput, setUserInpt] = useState({
     //     enteredTitle: '',
     //     enteredAmount: '',
@@ -31,31 +31,34 @@ const ExpenseForm = () => {
         // });
         setEnteredDate(event.target.value)
     }
-    const formSubmission =(event) => {
+    const formSubmissionHandler = (event) => {
         event.preventDefault();
-const obj ={
-    amount: enteredAmount,
-    title: enteredTitle,
-    date: new Date(enteredDate),
+        const expenseData = {
+            amount: enteredAmount,
+            title: enteredTitle,
+            date: new Date(enteredDate),
 
-}
-console.log(obj)
+        }
+        props.onSaveExpenseData(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
     };
     return (
         <div className="formlayout">
-            <form onSubmit ={formSubmission} className="formlayout">
+            <form onSubmit={formSubmissionHandler} className="formlayout">
                 <div className="formlayout">
                     <div className="title">
                         <label>Title:-</label>
-                        <input type='text' onChange={titleChangeHandler} />
+                        <input type='text' value={enteredTitle} onChange={titleChangeHandler} />
                     </div>
                     <div className="amount">
                         <label>Amount:-</label>
-                        <input type='number' onChange={amountChangeHandler} />
+                        <input type='number' value={enteredAmount} onChange={amountChangeHandler} />
                     </div>
                     <div className="date">
                         <label>Date:</label>
-                        <input type='date' min="2019-01-01" max="2023-12-31" onChange={dateChangeHandler} />
+                        <input type='date' min="2019-01-01" max="2023-12-31" value={enteredDate} onChange={dateChangeHandler} />
                     </div>
                 </div>
                 <div >
