@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ExpenseDate from "./ExpenseDate.js";
 import "./ExpenseItem.css";
 import ExpenseDetails from "./ExpenseDetails.js";
-import ExpenseAmount from "./UI/ExpenseAmount.js";
-//import Card from "./UI/Card.js";
+import  ExpenseAmount from "./ExpenseAmount"
+
 
 const ExpenseItem = (props) => {
    let [title, setTitle] = useState(props.title);
@@ -23,8 +23,8 @@ const ExpenseItem = (props) => {
          <div className="location">{props.location}</div>
          <div className="expense-item__description">
             {/* <h2>  <ExpenseDetails title={props.title} /> </h2> */}
-            <h2>{title}</h2>
-            <div className="expense-item__price">{amount}</div>
+            <h2>{props.title}</h2>
+            <div className="expense-item__price">{props.amount}</div>
          </div>
          <button onClick={amountHandler}>Expense</button>
          <button onClick={clickhandler}>Title</button>
