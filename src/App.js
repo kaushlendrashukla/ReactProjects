@@ -21,12 +21,6 @@ const dummyexpenese = [
     amount: 3200,
     date: new Date(2022, 3, 16),
   },
-  {
-    id: 'e4',
-    title: 'Desk',
-    amount: 2100,
-    date: new Date(2022, 4, 17),
-  },
 ];
 
 const App = () => {
